@@ -59,3 +59,7 @@ func sort(items []int, left int, right int){
 		sort(items, i+1, right)
 	}
 }
+
+func Malloc()[]int{
+	return make([]int , 1024)
+}

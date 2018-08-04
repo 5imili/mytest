@@ -105,9 +105,10 @@ func BenchmarkBubbleSort(b *testing.B) {
 
 func BenchmarkQuickSort(b *testing.B) {
 	//items :=[]int{55,33,11,99,77}
+	b.ResetTimer()
 		for i:= 0;i < b.N ;i++{
 			b.StopTimer()
-			fmt.Println(i)
+			fmt.Println(i) // time.Sleep() or do other things
 			b.StartTimer()
 			//time.Sleep(time.Second *1)
 			items := make([]int,0)
@@ -119,4 +120,11 @@ func BenchmarkQuickSort(b *testing.B) {
 			//t.Log(t.Name(),"after: ", items)
 		}
 	//QuickSort(items)
+}
+
+
+func BenchmarkMalloc(b *testing.B) {
+	for i:=0;i < b.N;i++{
+		_ = Malloc()
+	}
 }
